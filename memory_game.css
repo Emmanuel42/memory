@@ -1,0 +1,72 @@
+.card{
+	float: left;
+	height: 67px;
+	width: 67px;
+	border: 1px solid #fff;
+}
+.card div.off{
+	height: 67px;
+	width: 67px;
+	background: #fff url(images/card.png) no-repeat center center;
+}
+.card_ph{
+	float: left;
+	height: 67px;
+	width: 67px;
+	background: #fff;
+	border: 1px solid #fff;
+}
+
+.on{
+	border: 1px solid #ffff00;
+	display: none;
+}
+
+.clear{
+	clear:both;
+}
+
+#game_board{
+	width: 400px;
+	height: 400px;
+	margin: 10px auto;
+}
+
+#player_won{
+	display: none;
+	background: #fff url(images/well_done.png) no-repeat center center;
+	width: 331px;
+	height: 50px;
+	margin: 100px auto;
+}
+
+#start_again{
+	width: 200px;
+	margin: 0px auto;
+	display: none;
+}
+
+#start_again a{
+	background: #9BFF7A;
+	color: #3B993B;
+	border: 1px solid;
+	padding: 10px;
+	text-decoration: none;
+	display: inline-block;
+}
+
+#start_again a:hover{
+	background: #3B993B;
+	color: #9BFF7A;
+}
+
+#control{
+	margin: 0px auto;
+}
+h3{
+	text-align: center;
+}
+#sfx_movie{
+	width: 1px;
+	height: 1px;
+}
