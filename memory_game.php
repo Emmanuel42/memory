@@ -3,7 +3,7 @@
 	
 	// first check if we have a utility function
 	if ( isset($_REQUEST["won"]) ){
-		// if we won we need to reset the game board
+		// si on a gagné, on réinitialise la grille
 		unset($_SESSION['board']);
 		$_SESSION['games_won'] = ++$_SESSION['games_won'];
 		$response = array("status" => "ok");
@@ -212,7 +212,7 @@
 ?>
 </div>
 <div id="player_won"></div>
-<div id="start_again"><a id="again" href="#">Click here to play again</a></div>
+<div id="start_again"><a id="again" href="#">Cliquez ici pour rejouer</a></div>
 
 </body>
 </html>
