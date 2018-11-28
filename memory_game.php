@@ -3,7 +3,7 @@
 	
 	// first check if we have a utility function
 	if ( isset($_REQUEST["won"]) ){
-		// if we won we need to reset the game board
+		// si on a gagné, on réinitialise la grille
 		unset($_SESSION['board']);
 		$_SESSION['games_won'] = ++$_SESSION['games_won'];
 		$response = array("status" => "ok");
