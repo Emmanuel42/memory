@@ -212,7 +212,7 @@
 ?>
 </div>
 <div id="player_won"></div>
-<div id="start_again"><a id="again" href="#">Click here to play again</a></div>
+<div id="start_again"><a id="again" href="#">Cliquez ici pour rejouer</a></div>
 
 </body>
 </html>
