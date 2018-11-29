@@ -1,6 +1,0 @@
-Quickflip 
-
-au clic sur 1 image, l'image se retourne.
-au clic sur la 2ème image, l'image se retourne. Si elle n'est pas identique à la première, les 2 images se retournent. Si elle est identique, les 2 images disparaissent.
-
-dans la fonction quickflip, il faut gérer le retournement de l'objet + comparer l'image à une autre si nécessaire + retourner les 2 images si non identiques ou les effacer si identique. Il faut aussi incrementer le compteur de "mouvements".
