@@ -13,7 +13,7 @@ $(document).ready(function(){
 	
 	$("#level_chooser").bind("change", levelChoosen);
 	
-	// Add some sounds
+	// Ajoute un peu de son
 	$(document).bind("flipping_cards.sound", playFlip);
 	$(document).bind("game_won.sound", playCheer);
 	$(document).bind("found_match", playMatch);
