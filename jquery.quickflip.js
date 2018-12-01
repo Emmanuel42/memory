@@ -33,7 +33,7 @@
  */
 
 ( function( $ ) {
-    $.quickFlip = {
+    $.quickFlip = {//initialisation jeu
         wrappers : [],
         options  : [],
         objs     : [],
@@ -41,10 +41,10 @@
         init : function( options, box ) {
             var options = options || {};
             
-            options.closeSpeed = options.closeSpeed || 180;
-            options.openSpeed  = options.openSpeed  || 120;
+            options.closeSpeed = options.closeSpeed || 180; // durée en ms nécessaire pour retourner et masquer panneau avant
+            options.openSpeed  = options.openSpeed  || 120; // durée en ms nécessaire pour basculer et afficher panneau arriere 
             
-            options.ctaSelector = options.ctaSelector || '.quickFlipCta';
+            options.ctaSelector = options.ctaSelector || '.quickFlipCta';// déclenche l'effet de retournement ou l'arrêt du processus
             
             options.refresh = options.refresh || false;
             
@@ -53,10 +53,10 @@
             var $box = typeof( box ) != 'undefined' ? $(box) : $('.quickFlip');
             var $kids = $box.children();
             
-            // define $box css
+            // definir $box en css
             if ( $box.css('position') == 'static' ) $box.css('position', 'relative');
             
-            // define this index
+            // definir cet index
             var i = $.quickFlip.wrappers.length;
             
             // close all but first panel before calculating dimensions
