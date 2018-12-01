@@ -1,7 +1,7 @@
 <?php	
 	session_start();
 	
-	// first check if we have a utility function
+	// vérifier d'abord si la fonction "won" existe
 	if ( isset($_REQUEST["won"]) ){
 		// si on a gagné, on réinitialise la grille
 		unset($_SESSION['board']);
@@ -10,7 +10,7 @@
 		exit(json_encode($response));
 	}
 	
-	// All the card files we have
+	// Tous les fichiers cartes que nous avons
 	$CARDS = array("images/image0001.png",
 					"images/image0002.png","images/image0003.png",
 					"images/image0004.png","images/image0005.png",
@@ -35,22 +35,23 @@
 		function __construct($level, $card_files) {
 			$num_of_cards = $this->modes[$level - 1];
 			
-			// Shuffle the cards available so we won't pick the 
-			// same ones every time
+			
+			//Mélangez les cartes disponibles afin que nous ne puissions pas choisir
+			//les mêmes à chaque fois
 			shuffle($card_files);
-			// Get the card objects
+			// Obtenir les cartes
 			$cards = array();
 			for ( $i = 0; $i < $num_of_cards; ++$i ){
 				$cards[$i] = new Card($card_files[$i]);
 				$this->css[] = $cards[$i]->get_css_block();
 			}
-			// Double the array so we will have pairs
+			// Doubler le tableau pour avoir des paires
 			$this->cards = array_merge($cards, $cards);
 			
-			// Shuffle the cards to create the order on the board
+			// Mélangez les cartes pour créer l'ordre sur le tableau
 			shuffle($this->cards);
 			
-			// Get the number of cols
+			// Obtenez le nombre de colonnes
 			$num = count($this->cards);
 			$sr = sqrt($num);
 			$this->rows = floor($sr);
@@ -95,9 +96,9 @@
 		}
 		
 		function get_html(){
-			// For each card
+			// Pour chaque carte
 			for ( $i = 0 ; $i < $this->get_size() ; ++$i ){
-				// Check if it's time for a new row
+				// Vérifier s'il est temps de changer de rangée
 				if ( ($i % $this->get_cols()) == 0 ){
 					print "\r<div class=\"clear\"></div>";
 				}
