@@ -59,11 +59,11 @@
             // definir cet index
             var i = $.quickFlip.wrappers.length;
             
-            // close all but first panel before calculating dimensions
+            // ferme tout sauf le premier panneau avant calcul dimension
             $kids.each(function(j) {
                 var $this = $(this);
                 
-                // attach standard click handler
+                // lie un gestionnaire de clic standard
                 if ( options.ctaSelector ) $.quickFlip.attachHandlers($(options.ctaSelector, $this), i, j);
 
                 if ( j ) $this.hide();
@@ -77,7 +77,7 @@
             
             
             
-            // quickFlip set up again on window resize
+            // quickFlip configuré à nouveau sur le redimensionnement de la fenêtre
             
             $(window).resize( function() {
                 for ( var i = 0; i < $.quickFlip.wrappers.length; i++ ) {
@@ -89,11 +89,11 @@
         },
         
         buildQuickFlip : function(i, currPanel) {
-            // get box width and height
+            // obtenir la largeur et la hauteur de la boîte
             $.quickFlip.options[i].panelWidth = $.quickFlip.options[i].panelWidth || $.quickFlip.objs[i].$box.width();
             $.quickFlip.options[i].panelHeight = $.quickFlip.options[i].panelHeight || $.quickFlip.objs[i].$box.height();
             
-             // init quickFlip, gathering info and building necessary objects
+             // initialise quickFlip : collecte d'informations et construction d'objets nécessaires
             var options = $.quickFlip.options[i];
             
             var thisFlip = {
@@ -108,14 +108,14 @@
                 options     : options
             };
             
-            // define each panel
+            // définir chaque panneau
             $.quickFlip.objs[i].$kids.each(function(j) {
                 var $thisPanel = addPanelCss( $(this) );
                 
                 thisFlip.panels.push( $thisPanel );
                 thisFlip.classNames.push( $thisPanel[0].className );
                 
-                // build flipDivs
+                // construis les FlipDivs
                 var $flipDivs = buildFlip( thisFlip, j ).hide().appendTo(thisFlip.wrapper);
                 
                 thisFlip.flipDivs.push( $flipDivs );
@@ -143,7 +143,7 @@
                 return $out;
             }
             
-            // builds one column of the flip divs (left or right side)
+            // construis une colonne sur flipdivs (coté gauche ou droit)
             function buildFlipCol(x, classNames, inner ) {
                 var $col = $('<div></div>');
                 
@@ -166,7 +166,7 @@
                 return $col;
             }
             
-            // add css for inner panel
+            // ajoute  CSS pour le panel intérieur
             function addPanelCss( $panel ) {
                 if ( typeof( $panel.css ) == 'undefined' ) $panel = $( $panel );
                 
@@ -184,7 +184,7 @@
             }
         },
         
-        // function flip ( i is quickflip index, j is index of currently open panel)
+        // fonction flip (i est quickflip index, j est l'index du panneau actuellement ouvert)
         
         flip : function( i, nextPanel, repeater, options) {
         
@@ -202,7 +202,7 @@
     
             x.panels[j].hide()
             
-            // if refresh set, remove flipDivs and rebuild
+            // si l'actualisation est définie, supprimez flipDivs et reconstruisez
             if ( options.refresh ) {
                 $.quickFlip.removeFlipDivs(i);
                 $.quickFlip.buildQuickFlip(i, k);
@@ -212,7 +212,7 @@
             
             x.flipDivs[j].show();
             
-            // these are due to multiple animations needing a callback
+            // ceux-ci sont dus à plusieurs animations nécessitant un callback
             var panelFlipCount1 = 0;
             var panelFlipCount2 = 0;
             
@@ -235,14 +235,14 @@
                             
                             x.panels[k].show();
                             
-                            // handle any looping of the animation
+                            // gérer n'importe quelle boucle de l'animation
                             switch( repeater ) {
                                 case 0:
                                 case -1:
                                     $.quickFlip.flip( i, null, -1);
                                     break;
                                 
-                                //stop if is last flip, and attach events for msie
+                                //stop si cest le dernier flip, and attache les évènements
                                 case 1: 
                                     break;
                                     
@@ -257,9 +257,9 @@
             
         },
         
-        // attach click handlers
+        // attache des gestionnaires de clics
         attachHandlers : function($the_cta, i, panel) {
-            //attach flip
+            //attache un flip
             $the_cta.click(function(ev) {
                 ev.preventDefault();
                 $.quickFlip.flip(i);
@@ -314,7 +314,7 @@
             var $this = $(this);
             var thisIndex = $this.whichQuickFlip();
             
-            // if doesnt exist, set it up
+            // si ça n'existe pas, installez-le
             if ( thisIndex == null ) {
                 $this.quickFlip( options );
                 
