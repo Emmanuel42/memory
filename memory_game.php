@@ -188,10 +188,10 @@
 	?>
 </style>
 <body>
-<h3>Simple Memory Game</h3>
+<h3>Memory Game</h3>
 
 <div id="control" style="width:<?php print $board->get_cols()*75; ?>px;">
-	<label>Level:</label>
+	<label>Niveau:</label>
 	<select id="level_chooser">
 		<?php 
 			print "<!-- ".$board->max_level()." -->";
@@ -204,7 +204,7 @@
 	</select>
 	<label>Parties terminées: </label>
 	<span><?php print $_SESSION["games_won"]; ?></span>
-	<label>Moves:</label>
+	<label>Coups:</label>
 	<span id="num_of_moves">0</span>
 </div>
 <div id="game_board" style="width:<?php print $board->get_cols()*75; ?>px;">

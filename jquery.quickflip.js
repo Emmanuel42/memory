@@ -34,20 +34,25 @@
 
 ( function( $ ) {
     $.quickFlip = {//initialisation jeu
-        wrappers : [],
-        options  : [],
+        wrappers : [], //englobe les différents panneaux
+        options  : [], //panneaux
         objs     : [],
         
         init : function( options, box ) {
             var options = options || {};
             
+            //ajuste la vitesse de l'animation
             options.closeSpeed = options.closeSpeed || 180; // durée en ms nécessaire pour retourner et masquer panneau avant
             options.openSpeed  = options.openSpeed  || 120; // durée en ms nécessaire pour basculer et afficher panneau arriere 
             
+            //QuickFlip ajoute un événement click à ce sélecteur jQuery qui déclenche l'effet de retournement.
             options.ctaSelector = options.ctaSelector || '.quickFlipCta';// déclenche l'effet de retournement ou l'arrêt du processus
             
+            //refresh (boolean) : Permet d'actualiser l'animation QuickFlip chaque fois qu'un retournement est appelé. 
+            //Utile si le contenu change de manière visuelle. Désactivé par défaut pour des raisons de performances.
             options.refresh = options.refresh || false;
             
+            //easing (string), 2 methodes pour l'animation: swing (par defaut) ou linear
             options.easing = options.easing || 'swing';
             
             var $box = typeof( box ) != 'undefined' ? $(box) : $('.quickFlip');
