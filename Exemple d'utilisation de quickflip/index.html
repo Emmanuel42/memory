@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>jQuery Flipping Content Tabs - Web Developer Plus Demos</title>
+<script type="text/javascript" src="js/jquery-1.3.2.js" ></script>
+<script type="text/javascript" src="js/jquery.quickflip.js" ></script>
+<link rel="stylesheet" type="text/css" href="./styles.css" />
+<script type="text/javascript" >
+	$('document').ready(function(){
+		$('#flip-container').quickFlip();
+		
+		$('#flip-navigation li a').each(function(){
+			$(this).click(function(){
+				$('#flip-navigation li').each(function(){
+					$(this).removeClass('selected');
+				});
+				$(this).parent().addClass('selected');
+				var flipid=$(this).attr('id').substr(4);
+				$('#flip-container').quickFlipper({ }, flipid, 1);
+				
+				return false;
+			});
+		});
+	});
+</script>
+</head>
+<body>
+<div id="mainbody" >
+	<h3>&raquo; Flipping Tabs using jQuery</h3>
+	
+	<div id="flip-tabs" >
+		<ul id="flip-navigation" >
+			<li class="selected"><a href="#" id="tab-0"  >Recent</a></li>
+			<li><a href="#" id="tab-1" >Popular</a></li>
+			<li><a href="#" id="tab-2" >Comments</a></li>
+		</ul>
+		<div id="flip-container" >
+			<div>
+				<ul class="orange">
+					<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+					<li>Cras congue venenatis interdum</li>
+					<li>Nunc quis tellus at eros aliquam hendrerit nec sed mauris</li>
+					<li>Phasellus ut erat sapien. Suspendisse ultrices vestibulum</li>
+					<li>Donec nec erat neque. Curabitur orci risus,</li>
+				</ul>
+			</div>
+			<div>
+				<ul class="green">
+					<li>Phasellus ut erat sapien. Suspendisse ultrices vestibulum</li>
+					<li>Donec nec erat neque. Curabitur orci risus,</li>
+					<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+					<li>Cras congue venenatis interdum</li>
+					<li>Nunc quis tellus at eros aliquam hendrerit nec sed mauris</li>					
+				</ul>
+			</div>
+			<div>
+				<ul class="blue">
+					<li>Duis laoreet elementum imperdiet. Fusce iaculis,</li>
+					<li>erat rutrum mollis sodales, quam arcu vehicula ipsum,</li>
+					<li>Curabitur porttitor nisl at mi sagittis eleifend.</li>
+					<li>Nam tempus pretium nisl quis pharetra. Maecenas</li>
+					<li>at feugiat nibh sem ut urna.  Curabitur turpis nisl.</li>					
+				</ul>
+			</div>
+		</div>
+	</div>
+		
+		
+</div>
+
+<div style="font-family:Arial, sans-serif; font-size:12px; color:#666; line-height:30px; margin-top:300px;" >
+<hr />
+<p>
+Demo Provided By: <a href="http://webdeveloperplus.com" title="Web Developer Plus - Ultimate Web Development & Design Resource" >Web 
+Developer Plus</a></p>
+</div>
+</body>
